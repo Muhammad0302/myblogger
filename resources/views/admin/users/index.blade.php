@@ -8,6 +8,7 @@
   <thead>
     <tr>
         <th>Id</th>
+        <th>Photo</th>
         <th>Name</th>
         <th>Email</th>
         <th>Role</th>
@@ -21,7 +22,12 @@
       @foreach($user as $users)
          <tr>
             <td>{{$users->id}}</td>
-            <td>{{$users->name}}</td>
+             
+             <!-- problem over here in displaying image in show all users -->
+            <!-- <img height="50" src="{{$users->photo ? $users->photo->file:'no user photo'}}" alt=""> -->
+
+            <td>{{$users->photo ? $users->photo->file:'no user photo'}}</td>
+            <td><a href="{{route('admin.users.edit',$users->id)}}">{{$users->name}}</a></td>
             <td>{{$users->email}}</td>
             <td>{{$users->role->name}}</td>
             <td>{{$users->is_active==1 ? 'active':'Not active'}}</td>
