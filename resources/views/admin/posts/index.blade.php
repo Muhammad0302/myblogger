@@ -28,9 +28,9 @@
             <!-- <img height="50" src="{{$posts->photo ? $posts->photo->file:'no user photo'}}" alt=""> -->
             <!-- <td><img height="50" src="{{$posts->photo ? $posts->photo->file :'no photo' }}" alt=""></td> -->
      
-            <td>{{$posts->user->name}}</td>
+            <td><a href="{{route('admin.posts.edit',$posts->id)}}">{{$posts->user->name}}</a></td>
             <td>{{$posts->photo_id}}</td>
-            <td>{{$posts->category_id}}</td>
+            <td>{{$posts->category ? $posts->category->name :"uncategories"}}</td>
             <td>{{$posts->title}}</td>
             <td>{{$posts->body}}</td>
             <td>{{$posts->created_at->diffForHumans()}}</td>
